@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$PATH" | grep -o ":" | wc -l | awk '{print $0+1}'
+echo $(('echo $PATH | grep -o ":/" | wc -l'+ 1))
