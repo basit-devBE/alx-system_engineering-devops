@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#A script that uses the while loop to to print "BEST SCHHOL" 10 TIMES
 
 i=1
 
