@@ -1,0 +1,6 @@
+Host ubuntu
+    HostName 54.161.255.108
+    User ubuntu
+    port 22
+    IdentityFile /home/basit/.ssh/school
+    PasswordAuthentication no
