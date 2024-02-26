@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 
-# Install Nginx
-apt-get update
-apt-get install -y nginx
+# installs nginx on a server
 
-# Configure Nginx
-echo "server {
-    listen 80;
-    server_name localhost;
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
 
-    location / {
-        echo 'Hello World!' > /usr/share/nginx/html/index.html;
-        return 200;
-    }
-}" > /etc/nginx/sites-available/default
-
-# Restart Nginx without systemctl
-service nginx restart
+ufw allow 'Nginx HTTP'
