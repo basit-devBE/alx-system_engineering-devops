@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#This scripts is to install an HAAProxy load balancer on the lb-01 server
+sudo apt-get update
+sudo apt-get -y install haproxy
+
+# configure the load balancer to send traffic to web-01 and web-02
+server_config = \
+"
+frontend yonas-frontend
+    bind *:80
+    mode http
+    default_backend yonas-backend
+
+backend yonas-backend
+    balance roundrobin
+    server 459821-web-01 18.207.2.126 check
+    server 459821-web-02 100.23.141.239 check
+"
+echo "$server_config" | sudo tee /etc/haproxy/haproxy.cfg
+
+#enabe the haproxy to be started by init script
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+
+sudo service haproxy restart
