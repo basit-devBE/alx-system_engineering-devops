@@ -20,4 +20,10 @@ echo "$server_config" | sudo tee /etc/haproxy/haproxy.cfg
 # Enable the haproxy to be started by init script
 sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 
+  # Validate the HAProxy configuration file
+  sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+  if [ $? -ne 0 ]; then
+      echo "HAProxy configuration validation failed"
+      exit 1
+  fi
 sudo service haproxy restart
