@@ -1,0 +1,1 @@
+THis directory corrects a few errors of nginx and also a few things about web stack debugging
