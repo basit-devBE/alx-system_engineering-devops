@@ -1,0 +1,1 @@
+This directory talks about what happens when you tye www.google.com in your browser and press enter
