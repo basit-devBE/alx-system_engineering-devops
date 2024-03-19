@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
-#script to run whoami command under the user passed as an argument
-#usage: ./0-iamsomeoneelse <username>
-# Create a new user
-sudo adduser $1
+#!/bin/bash
 
-# Run the whoami command under the new user
-sudo -u $1 whoami
+# Check if a username argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+
+# Run the whoami command under the specified user
+sudo -u "$1" whoami
