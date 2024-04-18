@@ -1,0 +1,20 @@
+#nginx configuration to server my page from the rout /airbnb-onepage/
+
+server{
+    listen 80;
+    listen [::]:80 default_server ipv6only=on;
+    server_name localhost 18.207.2.126;
+
+    add_header X-Served By 459821-web-01	
+
+    location = /airbnb-onepage/{
+        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+
+
+    }
